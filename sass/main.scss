@@ -1,0 +1,124 @@
+// @import "../node_modules/bootstrap/scss/functions";
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/utilities";
+
+
+// import functions first (so you can use them in this file)
+@import "../node_modules/bootstrap/scss/functions";
+
+// redefine variables not dependent on anything else
+
+// global variables
+// $enable-rounded: false;
+// $enable-button-pointers: false;
+$enable-negative-margins: true;
+// $enable-smooth-scroll: false;
+
+// theme color variables
+$primary: #ff3287;
+$secondary: #16be7e;
+$light: #fff9f1;
+
+// import variables and mixins files (so you can use them below)
+// any redefined vars above will be incorporated into the files (e.g. in maps)
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// anything that depends on variables/mixins file defined below
+
+.btn-truncate {
+  max-width: 100px;
+  @include text-truncate;
+}
+
+// add colors to theme
+$custom-colors: (
+  "primary-light": #fff8fb,
+  "secondary-light": #f6fffb
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// remove colors from theme
+// $theme-colors: map-remove($theme-colors, "danger");
+
+// add classes for color pallette colors
+@each $color, $val in $colors {
+  .bg-#{$color} {
+    background-color: $val
+  }
+  .bg-#{$color}-light {
+    background-color: tint-color($val, 80%)
+  }
+  .bg-#{$color}-dark {
+    background-color: shade-color($val, 30%)
+  }
+  .text-#{$color} {
+    color: $val
+  }
+  .text-#{$color}-light {
+    color: tint-color($val, 80%)
+  }
+  .text-#{$color}-dark {
+    color: shade-color($val, 30%)
+  }
+}
+
+// add colors to theme
+$custom-colors: (
+  "primary-light": #fff8fb,
+  "secondary-light": #f6fffb
+);
+
+@debug "theme-colors";
+@debug $theme-colors;
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@debug "theme-colors are now";
+@debug $theme-colors;
+
+
+
+
+
+
+
+
+
+
+// $all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "color": map-merge(
+//       map-get($utilities, "color"),
+//       (
+//         values: map-merge(
+//           map-get(map-get($utilities, "color"), "values"),
+//           (
+//             $all-colors
+//           ),
+//         ),
+//       ),
+//     ),
+//   )
+// );
+
+// @import "../node_modules/bootstrap/scss/utilities/api";
+
+
+
+
+
+
+
+// import bootstrap whole sass lib (incorporates all above redefined vars & values)
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+
+
